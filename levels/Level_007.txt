@@ -1,0 +1,16 @@
+Id: 7
+Name: 7
+Time: 8
+Difficulty: Easy
+Box count: 2
+Width: 9
+Height: 8
+Level map:
+.#######.
+.# *   #.
+##$# # ##
+#       #
+#   P   #
+## # #$##
+.#   * #.
+.#######.

@@ -1,0 +1,15 @@
+Id: 11
+Name: 11
+Time: 20
+Difficulty: Medium
+Box count: 8
+Width: 14
+Height: 7
+Level map:
+####......####
+#  ########  #
+# $ # ** # $ #
+#  $$$**$$$  #
+##           #
+.#P #****#  ##
+.############.

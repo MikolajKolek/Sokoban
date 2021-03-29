@@ -1,0 +1,19 @@
+Id: 6
+Name: 6
+Time: 16
+Difficulty: Easy
+Box count: 6
+Width: 9
+Height: 11
+Level map:
+..#####..
+### P ###
+#   #   #
+# #* *# #
+# $   $ #
+# # # # #
+# $   $ #
+# #* *# #
+# $* *$ #
+###   ###
+..#####..

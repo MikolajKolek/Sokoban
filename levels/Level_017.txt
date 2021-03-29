@@ -1,0 +1,16 @@
+Id: 17
+Name: 17
+Time: 55
+Difficulty: Hard
+Box count: 4
+Width: 9
+Height: 8
+Level map:
+#######..
+#***  ###
+#P##$$  #
+# $     #
+#*# ## ##
+# $ #  #.
+###   ##.
+..#####..

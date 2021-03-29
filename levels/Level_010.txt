@@ -1,0 +1,15 @@
+Id: 10
+Name: 10
+Time: 1
+Difficulty: Easy
+Box count: 1
+Width: 9
+Height: 7
+Level map:
+....#####
+...##   #
+.###    #
+##   $ ##
+#P*    #.
+#      #.
+########.

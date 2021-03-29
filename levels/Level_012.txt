@@ -1,0 +1,18 @@
+Id: 12
+Name: 12
+Time: 4
+Difficulty: Medium
+Box count: 5
+Width: 8
+Height: 10
+Level map:
+...#####
+..##   #
+.##  # #
+.#*$   #
+##$*$  #
+#  P*$ #
+#   $* #
+# # *###
+#   ##..
+#####...

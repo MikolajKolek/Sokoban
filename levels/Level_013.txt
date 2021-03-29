@@ -1,0 +1,17 @@
+Id: 13
+Name: 13
+Time: 11
+Difficulty: Medium
+Box count: 5
+Width: 9
+Height: 9
+Level map:
+..####...
+.##  ###.
+.#   * ##
+##*$* $ #
+# $ # $P#
+#  $*  ##
+## *   #.
+.###  ##.
+...####..

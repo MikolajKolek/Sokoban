@@ -1,0 +1,17 @@
+Id: 9
+Name: 9
+Time: 4
+Difficulty: Easy
+Box count: 3
+Width: 11
+Height: 9
+Level map:
+####.......
+#P ########
+#     #   #
+#*  $     #
+#   ###  *#
+#   #  $ $#
+#####   * #
+....####  #
+.......####

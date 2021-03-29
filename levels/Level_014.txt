@@ -1,0 +1,17 @@
+Id: 14
+Name: 14
+Time: 9
+Difficulty: Medium
+Box count: 4
+Width: 11
+Height: 9
+Level map:
+..####.....
+..#  ####..
+### $*$ ###
+#  *   *  #
+#    #    #
+##  $ $  ##
+.#   * ###.
+.####P #...
+....####...

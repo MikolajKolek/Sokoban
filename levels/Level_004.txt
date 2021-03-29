@@ -1,0 +1,21 @@
+Id: 4
+Name: 4
+Time: 5
+Difficulty: Easy
+Box count: 1
+Width: 9
+Height: 13
+Level map:
+.#####...
+.#   ###.
+.#  $  #.
+###    #.
+#     ###
+# #     #
+# # P # #
+#     # #
+### *   #
+.#    ###
+.#     #.
+.###   #.
+...#####.

@@ -1,0 +1,17 @@
+Id: 15
+Name: 15
+Time: 23
+Difficulty: Medium
+Box count: 3
+Width: 7
+Height: 9
+Level map:
+.#####.
+.#  P##
+.# $$ #
+.#$ # #
+## ***#
+#  # ##
+#    #.
+###  #.
+..####.

@@ -1,0 +1,19 @@
+Id: 16
+Name: 16
+Time: 32
+Difficulty: Hard
+Box count: 5
+Width: 9
+Height: 11
+Level map:
+....####.
+#####  #.
+#      #.
+#P$* *$#.
+#   #  #.
+## * *$##
+#  #    #
+# $* #$ #
+#  #    #
+####  ###
+...####..

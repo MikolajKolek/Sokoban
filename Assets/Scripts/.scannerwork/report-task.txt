@@ -1,0 +1,6 @@
+projectKey=Sokoban
+serverUrl=http://localhost:9000
+serverVersion=8.7.1.42226
+dashboardUrl=http://localhost:9000/dashboard?id=Sokoban
+ceTaskId=AXhY3haaJuJ6MgS5g7yc
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AXhY3haaJuJ6MgS5g7yc
