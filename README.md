@@ -26,7 +26,7 @@ An implementation of the popular logic game Sokoban in Unity. It was created for
 	* [Unity: Audio and Sound Manager Singleton Script](https://www.daggerhartlab.com/unity-audio-and-sound-manager-singleton-script/ "Unity: Audio and Sound Manager Singleton Script")
 	* [Expandable Scroll View - Unity UI](https://www.youtube.com/watch?v=pn_Y9nF_tv4 "Expandable Scroll View - Unity UI")
 * **Font:** [LanaPixel](https://opengameart.org/content/lanapixel-localization-friendly-pixel-font "LanaPixel")
-* **Levels:** [Grigr2001](http://grigr.narod.ru/, "Grigr2001")
+* **Levels:** [Grigr2001](http://grigr.narod.ru/ "Grigr2001")
 
 # Downloads
 You can find the latest release for the game [here](https://github.com/MikolajKolek/Sokoban/releases/latest "here"). It is currently only availble for Windows. The installer was created using [InnoSetup](https://jrsoftware.org/isinfo.php "InnoSetup").
