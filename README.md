@@ -28,7 +28,7 @@ An implementation of the popular logic game Sokoban in Unity. It was created for
 * **Font**: [LanaPixel](https://opengameart.org/content/lanapixel-localization-friendly-pixel-font "LanaPixel")
 
 # Downloads
-You can find the latest release for the game [here](https://github.com/MikolajKolek/Sokoban/releases/latest "here"). It is currently only availble for Windows.
+You can find the latest release for the game [here](https://github.com/MikolajKolek/Sokoban/releases/latest "here"). It is currently only availble for Windows. The installer was created using [InnoSetup](https://jrsoftware.org/isinfo.php "InnoSetup").
 
 # Documentation
 You can find the full documentation for the project at [mikolajkolek.github.io](https://mikolajkolek.github.io/ "mikolajkolek.github.io"). It was created using [Doxygen](https://www.doxygen.nl/index.html "Doxygen"). The configuration file for the documentation can be found [here](https://github.com/MikolajKolek/Sokoban/tree/main/Doxygen "here"). The documentation contains information on setup, the internationalization system, and the code structure.
