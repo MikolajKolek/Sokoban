@@ -19,11 +19,10 @@ namespace GameScene3 {
         public int playerMoveCount;
         public int currentTime;
         public double timeDelta;
-        
-        public bool isEmpty;
         #endregion
 
-        public SaveData2(string saveDataName, SavableLevel currentLevel, TilemapSerializable mapState, Vector3Int currentPlayerLocation, float horizontalMultiplier, int boxInPlaceCount, 
+        public SaveData2(string saveDataName, SavableLevel currentLevel, TilemapSerializable mapState,
+            Vector3Int currentPlayerLocation, float horizontalMultiplier, int boxInPlaceCount,
             int boxMoveCount, int playerMoveCount, int currentTime, double timeDelta) {
             this.saveDataName = saveDataName;
             timeCreated = DateTime.Now.Ticks;
@@ -37,11 +36,6 @@ namespace GameScene3 {
             this.playerMoveCount = playerMoveCount;
             this.currentTime = currentTime;
             this.timeDelta = timeDelta;
-            isEmpty = false;
-        }
-
-        public SaveData2() {
-            isEmpty = true;
         }
 
         public int CompareTo(object compareSaveData) {

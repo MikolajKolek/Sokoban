@@ -12,11 +12,13 @@ namespace GameScene3 {
         [SerializeField] private GameObject noSaveNameWarningText;
         [SerializeField] private TMP_InputField saveNameField;
         [SerializeField] private GameObject duplicateSaveNameWarningText;
-        
+        [SerializeField] private GameObject saveGameButton;
+
         private bool inEditMode;
 
         public void EnterEditMode() {
             inEditMode = true;
+            saveGameButton.gameObject.SetActive(false);
         }
         
         protected override void FinishLevelEvent() {
@@ -24,6 +26,7 @@ namespace GameScene3 {
                 ((TilemapGameAdapter3) gameTilemapAdapter).EnterGameMode();
                 AudioManager.Instance.PlayMusic(AudioManager.MusicClip.MenuMusic);
                 inEditMode = false;
+                saveGameButton.gameObject.SetActive(true);
                 levelEditingScreen.SetActive(true);
                 gameObject.SetActive(false);
             }
@@ -40,6 +43,9 @@ namespace GameScene3 {
                 gameActive = false;
                 levelFinishObject.SetActive(false);
 
+                inEditMode = false;
+                saveGameButton.gameObject.SetActive(true);
+                
                 if(playButtonClick)
                     AudioManager.Instance.PlayAudioEffect(AudioManager.AudioEffectClip.ButtonClicked);
                 levelEditingScreen.SetActive(true);

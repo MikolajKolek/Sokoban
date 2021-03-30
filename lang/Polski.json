@@ -25,7 +25,8 @@
 	"mainscene.info.gameinformation.text": "Autorzy: 
 Mikołaj Kołek 
 Łukasz Prokop 
-Kod źródłowy: https://github.com/Mikkolek/Sokoban",
+Witold Kędra 
+Kod źródłowy: https://github.com/MikolajKolek/Sokoban",
 	"mainscene.info.back.button": "Wróć",
 	
 	"gamescene.game.exit.button": "Wyjście (ESC)",
@@ -112,6 +113,7 @@ Kod źródłowy: https://github.com/Mikkolek/Sokoban",
 	"gamescene.leveleditor.confirmexportlevel.button": "Exportuj",
 	"gamescene.leveleditor.duplicatename.text": "Poziom z taką nazwą już istnieje!",
 	"gamescene.leveleditor.backfromexportlevel.button": "Wróć",
+	"gamescene.leveleditor.quitwarning.text": "Czy jesteś pewien, że chcesz wyjść? Twój poziom będzie stracony na zawsze!",
 
 	"gamescene.savedataselection.exit.button": "Wyjdź",
 	"gamescene.savedataselection.deletesave.button": "Usuń grę",

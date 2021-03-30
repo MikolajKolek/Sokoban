@@ -81,7 +81,7 @@ namespace GameScene1 {
                 if (timeDelta <= 0) {
                     timeDelta += 1f;
                     currentTime++;
-
+                    
                     onTimePassed?.Invoke(currentTime);
                 }
             }
@@ -208,6 +208,7 @@ namespace GameScene1 {
                 if (level.id == LevelRegistry.GetLevelCount() && currentLevel.difficultyLevel != Level.Difficulty.None)
                     AudioManager.Instance.PlayMusic(AudioManager.MusicClip.LastLevelMusic);
                 else {
+                    // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
                     switch (currentLevel.difficultyLevel) {
                         case Level.Difficulty.Easy:
                             AudioManager.Instance.PlayMusic(AudioManager.MusicClip.EasyLevelMusic);
@@ -264,6 +265,12 @@ namespace GameScene1 {
                         case Level.Tile.BoxOnBoxArea:
                             boxInPlaceCount++;
                             tilemap.SetTile(cursorPosition, boxOnBoxArea);
+                            break;
+                        case Level.Tile.None:
+                            tilemap.SetTile(cursorPosition, null);
+                            break;
+                        case Level.Tile.PlayerOnBoxArea:
+                            tilemap.SetTile(cursorPosition, playerOnBoxArea);
                             break;
                         default:
                             tilemap.SetTile(cursorPosition, null);

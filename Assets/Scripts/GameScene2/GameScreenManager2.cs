@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using GameScene1;
 using Internationalization;
-using ProgramSetup;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +12,7 @@ namespace GameScene2 {
         [SerializeField] private TMP_Text loadSaveDataButtonText;
         [SerializeField] private TMP_Text savedText;
         
+        // ReSharper disable Unity.PerformanceAnalysis
         protected override void FinishLevelEvent() {
             var score = (int) ((TilemapGameAdapter2) gameTilemapAdapter).newLevelScore;
             scoreText.text = Translator.GetTranslation("gamescene.game.score.counter") + score + "/100";

@@ -22,7 +22,7 @@ namespace GameScene2 {
 
         public List<TMP_Text> individualScoresList;
         public List<TMP_Text> leaderboardEntryList;
-        private bool leaderboardInitialized = false;
+        private bool leaderboardInitialized;
         
         public void InitializeLeaderboard() {
             foreach(var entry in leaderboardEntryList)

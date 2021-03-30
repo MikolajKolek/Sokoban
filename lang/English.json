@@ -25,7 +25,8 @@
 	"mainscene.info.gameinformation.text": "Authors: 
 Mikołaj Kołek 
 Łukasz Prokop 
-Source code: https://github.com/Mikkolek/Sokoban",
+Witold Kędra 
+Source code: https://github.com/MikolajKolek/Sokoban",
 	"mainscene.info.back.button": "Back",
 	
 	"gamescene.game.exit.button": "Exit (ESC)",
@@ -112,6 +113,7 @@ Use the right mouse button to erase tiles",
 	"gamescene.leveleditor.confirmexportlevel.button": "Export",
 	"gamescene.leveleditor.duplicatename.text": "A level with this name already exists!",
 	"gamescene.leveleditor.backfromexportlevel.button": "Back",
+	"gamescene.leveleditor.quitwarning.text": "Are you sure you want to quit? Your level will be lost forever!",
 
 	"gamescene.savedataselection.exit.button": "Exit",
 	"gamescene.savedataselection.deletesave.button": "Delete save",

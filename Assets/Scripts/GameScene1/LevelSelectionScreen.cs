@@ -61,6 +61,9 @@ namespace GameScene1
                         button.transform.SetParent(hardItemContent.transform);
                         hardButtonList.Add(button);
                         break;
+                    case Level.Difficulty.None:
+                        Debug.LogError("Invalid difficulty in level " + loadedLevel.levelName);
+                        break;
                     default:
                         throw new ArgumentOutOfRangeException();
                 }

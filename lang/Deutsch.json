@@ -25,7 +25,8 @@
 	"mainscene.info.gameinformation.text": "Authoren: 
 Mikołaj Kołek 
 Łukasz Prokop 
-Source code: https://github.com/Mikkolek/Sokoban",
+Witold Kędra 
+Source code: https://github.com/MikolajKolek/Sokoban",
 	"mainscene.info.back.button": "Zurück",
 	
 	"gamescene.game.exit.button": "Ausgang (ESC)",
@@ -66,7 +67,7 @@ Source code: https://github.com/Mikkolek/Sokoban",
 	"gamescene.levelselection.renamelevel.inputfieldplaceholder": "Schreib neue Name des Levels...",
 	"gamescene.levelselection.deletelevel.button": "Level löschen",
 	"gamescene.levelselection.changelevelname.button": "Name ändern",
-	"gamescene.levelselection.duplicatelevelname.text": "Ein Level mit dieser Name schon existiert!",
+	"gamescene.levelselection.duplicatelevelname.text": "Ein Level mit diesem Namen existiert schon!",
 	"gamescene.levelselection.editlevelback": "Zurück",
 	"gamescene.levelselection.editlevel.button": "Level bearbeiten",
 	"gamescene.levelselection.newlevel.button": "neues Level",
@@ -111,6 +112,7 @@ Source code: https://github.com/Mikkolek/Sokoban",
 	"gamescene.leveleditor.confirmexportlevel.button": "exporten",
 	"gamescene.leveleditor.duplicatename.text": "Ein Level mit dieser Name schon existiert!",
 	"gamescene.leveleditor.backfromexportlevel.button": "Zurück",
+		"gamescene.leveleditor.quitwarning.text": "Bist du sicher, dass du gehen willst? Dein Level wird ewig verloren!",
 
 	"gamescene.savedataselection.exit.button": "Beenden",
 	"gamescene.savedataselection.deletesave.button": "Spiel löschen",

@@ -29,6 +29,7 @@ namespace GameScene2 {
             ProfileManager.selectedProfile = ProfileManager.selectedProfile.ChangeLevelScore(levelScore);
             ProfileManager.SaveSelectedProfile();
             
+            // ReSharper disable once Unity.PerformanceCriticalCodeInvocation
             base.LevelFinished();
         }
         
@@ -63,6 +64,7 @@ namespace GameScene2 {
             if (currentLevel.Equals(LevelRegistry.GetLevel(LevelRegistry.GetLevelCount() - 1)))
                 AudioManager.Instance.PlayMusic(AudioManager.MusicClip.LastLevelMusic);
             else {
+                // ReSharper disable once SwitchStatementHandlesSomeKnownEnumValuesWithDefault
                 switch (currentLevel.difficultyLevel) {
                     case Level.Difficulty.Easy:
                         AudioManager.Instance.PlayMusic(AudioManager.MusicClip.EasyLevelMusic);

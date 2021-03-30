@@ -1,11 +1,13 @@
 ﻿#if UNITY_EDITOR
-
 using UnityEditor;
 using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI {
+    /// <summary>
+    /// An extension to <see cref="ToggleEditor"/> that adds two fields required for <see cref="ToggleSelectable"/>.
+    /// </summary>
     [CustomEditor(typeof(ToggleSelectable), true)]
     [CanEditMultipleObjects]
     public class ToggleSelectableEditor : ToggleEditor {
@@ -46,5 +48,4 @@ namespace UI {
         }
     }
 }
-
 #endif

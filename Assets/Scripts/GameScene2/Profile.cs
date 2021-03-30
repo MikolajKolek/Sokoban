@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 
 namespace GameScene2 {
-    //TODO: Change this to a struct, this whole mess makes no sense
     public struct Profile : IComparable {
         #region Data
+        // ReSharper disable once FieldCanBeMadeReadOnly.Global
+        // I don't want it to be readonly because JsonUtility.ToJson() doesn't serialize readonly fields
         public int id;
         public int score;
         public string name;
@@ -46,13 +47,13 @@ namespace GameScene2 {
             return id.CompareTo(((Profile) compareProfile).id);
         }
 
-        public Profile ChangeSavedGame(SaveData savedGame) {
-            this.savedGame = savedGame;
+        public Profile ChangeSavedGame(SaveData newSavedGame) {
+            savedGame = newSavedGame;
             return this;
         }
 
-        public Profile ChangeScore(int score) {
-            this.score = score;
+        public Profile ChangeScore(int newScore) {
+            score = newScore;
             return this;
         }
     }

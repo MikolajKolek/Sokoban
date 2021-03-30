@@ -1339,8 +1339,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 1
-  levelSelectionScroll: {fileID: 1557190155}
-  levelSelectionContentRect: {fileID: 1604011351}
+  levelSelectionScroll: {fileID: 490313467}
+  levelSelectionContentRect: {fileID: 681531722}
 --- !u!1 &207087461
 GameObject:
   m_ObjectHideFlags: 0
@@ -3953,8 +3953,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.000025163405, y: 0}
-  m_SizeDelta: {x: 659, y: 30}
+  m_AnchoredPosition: {x: 0.000027912669, y: 0}
+  m_SizeDelta: {x: 731, y: 30}
   m_Pivot: {x: 0.000000038184226, y: 0.5}
 --- !u!114 &622253303
 MonoBehaviour:

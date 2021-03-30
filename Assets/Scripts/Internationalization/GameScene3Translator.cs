@@ -43,6 +43,7 @@ namespace Internationalization {
         [SerializeField] private TMP_Text levelEditorLevelNameInputFieldPlaceholder;
         [SerializeField] private TMP_Text levelEditorQuittingBackButtonText;
         [SerializeField] private TMP_Text levelEditorConfirmQuittingButtonText;
+        [SerializeField] private TMP_Text quitWhileEditingWarning;
         [SerializeField] private TMP_Text exportLevelText;
         [SerializeField] private TMP_Text playtestLevelButtonText;
         [SerializeField] private TMP_Text quitLevelEditor;
@@ -103,6 +104,7 @@ namespace Internationalization {
             levelEditorLevelNameInputFieldPlaceholder.text = Translator.GetTranslation( "gamescene.leveleditor.levelname.inputfieldplaceholder");
             levelEditorQuittingBackButtonText.text = Translator.GetTranslation("gamescene.leveleditor.quittingback.button");
             levelEditorConfirmQuittingButtonText.text = Translator.GetTranslation("gamescene.leveleditor.confirmquit.button");
+            quitWhileEditingWarning.text = Translator.GetTranslation("gamescene.leveleditor.quitwarning.text");
             exportLevelText.text = Translator.GetTranslation("gamescene.leveleditor.exportlevel.text");
             playtestLevelButtonText.text = Translator.GetTranslation("gamescene.leveleditor.playtestlevel.button");
             quitLevelEditor.text = Translator.GetTranslation("gamescene.leveleditor.quit.button");

@@ -82,13 +82,13 @@ namespace GameScene1
             gameScreen.SetActive(false);
         }
 
-        protected void RestartTimer() {
+        private void RestartTimer() {
             gameTilemapAdapter.RestartTimer();
             
             timerText.text = Translator.GetTranslation("gamescene.game.time.counter") + ": 0s";
         }
 
-        protected void RestartCounters() {
+        private void RestartCounters() {
             playerMoveText.text = Translator.GetTranslation("gamescene.game.playermoves.counter") + ": 0";
             boxMoveText.text = Translator.GetTranslation("gamescene.game.boxmoves.counter") + ": 0";
             timerText.text = Translator.GetTranslation("gamescene.game.time.counter") + ": 0s";

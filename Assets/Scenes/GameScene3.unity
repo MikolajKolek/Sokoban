@@ -1201,6 +1201,7 @@ MonoBehaviour:
   noSaveNameWarningText: {fileID: 1718489247}
   saveNameField: {fileID: 2087398229}
   duplicateSaveNameWarningText: {fileID: 1642951474}
+  saveGameButton: {fileID: 1653478037}
 --- !u!1 &271178743
 GameObject:
   m_ObjectHideFlags: 0
@@ -7558,6 +7559,7 @@ MonoBehaviour:
   levelEditorLevelNameInputFieldPlaceholder: {fileID: 65417429}
   levelEditorQuittingBackButtonText: {fileID: 709497756}
   levelEditorConfirmQuittingButtonText: {fileID: 1898405176}
+  quitWhileEditingWarning: {fileID: 1438855513}
   exportLevelText: {fileID: 1169783905}
   playtestLevelButtonText: {fileID: 2145580236}
   quitLevelEditor: {fileID: 499363923}
@@ -14250,7 +14252,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 375.5, y: 30}
+  m_SizeDelta: {x: 420.5, y: 30}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1638243937
 MonoBehaviour:

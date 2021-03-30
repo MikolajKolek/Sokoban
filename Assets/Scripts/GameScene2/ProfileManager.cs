@@ -99,7 +99,7 @@ namespace GameScene2 {
             SaveProfile(profileID);
         }
 
-        public static List<Profile> GetProfileLeaderboard() {
+        public static IEnumerable<Profile> GetProfileLeaderboard() {
             var leaderboard = new List<Profile>();
             foreach (var element in ProfileRegistry)
                 leaderboard.Add(element);
