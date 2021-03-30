@@ -1,19 +1,19 @@
 # Sokoban
-![Title Screen](https://github.com/MikolajKolek/Sokoban/blob/main/TitleScreen.png "Title Screen")
 An implementation of the popular logic game Sokoban in Unity. It was created for the [Motorola Science Cup](https://science-cup.pl/ "Motorola Science Cup") competition according to a specification that can be found [here](https://science-cup.pl/wp-content/uploads/2020/12/MSC_Zadanie_Sokoban.pdf "here").
+![Title Screen](https://github.com/MikolajKolek/Sokoban/blob/main/TitleScreen.png "Title Screen")
 
 # Authors
  - **Mikołaj Kołek - programming, creting the UI, bug fixing**
  - **Łukasz Prokop - creating translations and sound effects, selecting levels and music, testing**
  - **Witold Kędra - creating textures**
 
-#Sources
+# Sources
 * **Music and audio effects:**
-	* [Menu music](https://freemusicarchive.org/music/sawsquarenoise/dojokratos/tittle-screen "Menu Music")
-	* [Easy level music](https://freemusicarchive.org/music/sawsquarenoise/dojokratos/stage-1 "Easy Level Music")
-	* [Medium level music](https://freemusicarchive.org/music/sawsquarenoise/dojokratos/stage-2 "Medium Level Music")
-	* [Hard level music](https://freemusicarchive.org/music/sawsquarenoise/dojokratos/stage-3 "Hard Level Music")
-	* [Last level music](https://freemusicarchive.org/music/sawsquarenoise/dojokratos/boss-theme "Last Level Music")
+	* [Menu music](https://freemusicarchive.org/music/sawsquarenoise/dojokratos/tittle-screen "Menu Music") (*Tittle Screen* by sawsquarenoise)
+	* [Easy level music](https://freemusicarchive.org/music/sawsquarenoise/dojokratos/stage-1 "Easy Level Music") (*Stage 1* by sawsquarenoise)
+	* [Medium level music](https://freemusicarchive.org/music/sawsquarenoise/dojokratos/stage-2 "Medium Level Music") (*Stage 2* by sawsquarenoise)
+	* [Hard level music](https://freemusicarchive.org/music/sawsquarenoise/dojokratos/stage-3 "Hard Level Music") (*Stage 3* by sawsquarenoise)
+	* [Last level music](https://freemusicarchive.org/music/sawsquarenoise/dojokratos/boss-theme "Last Level Music") (*Boss Theme* by sawsquarenoise)
 	* [Stage 3 game music](https://patrickdearteaga.com/chiptune-8-bit-retro/ "Stage 3 game music") (*Boss fight* by Patrick de Arteaga)
 	* All the audio effects were made by us using [sfxr](https://www.drpetter.se/project_sfxr.html "sfxr").
 * **Plugins and frameworks:**
