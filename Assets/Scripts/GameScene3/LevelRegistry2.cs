@@ -43,13 +43,13 @@ namespace GameScene3 {
                 LevelRegistry2.wall = wall;
                 LevelRegistry2.box = box;
                 LevelRegistry2.empty = empty;
-
+                
                 var directory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
                                 @"\Sokoban\levels";
                 if (!Directory.Exists(directory))
                     Directory.CreateDirectory(directory);
                 var files = Directory.GetFiles(directory, "*.txt");
-
+                
                 foreach (var file in files) {
                     var fileReader = new StreamReader(file);
                     var id = Convert.ToInt32(ProcessLine(fileReader.ReadLine()));
@@ -104,6 +104,7 @@ namespace GameScene3 {
                     var level = new Level(id, levelName, 0, Level.Difficulty.None, boxCount, levelWidth, levelHeight,
                         levelMap);
                     Registry.Add(level);
+                    fileReader.Close();
                 }
 
                 Registry.Sort();

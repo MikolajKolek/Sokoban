@@ -91,9 +91,10 @@ namespace GameScene1 {
                         levelMap[levelHeight - i - 1] = levelRow;
                     }
                 }
-
+                
                 var level = new Level(id, levelName, time, difficulty, boxCount, levelWidth, levelHeight, levelMap);
                 Registry.Add(level);
+                fileReader.Close();
             }
 
             Registry.Sort();
