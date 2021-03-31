@@ -4,10 +4,20 @@ using GameScene3;
 using Internationalization;
 using UnityEngine;
 
+/// <summary>
+/// A nameapsce for classes that are used all throughout the project
+/// </summary>
 namespace ProgramSetup
 {
+    /// <summary>
+    /// This class contains <see cref="OnProgramSetup"/> which initializes different systems in the game.
+    /// </summary>
     public static class StartingSetup {
         #region Methods
+        /// <summary>
+        /// Called before any scenes are loaded. Sets up all the systems in the game that require initialization (loads options, sets up the internationalization
+        /// system and initializes the level, save data and profile registries.
+        /// </summary>
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         private static void OnProgramSetup() {
             var optionsSaveObject = new OptionsManager();

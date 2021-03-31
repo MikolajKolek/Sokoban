@@ -20,10 +20,12 @@ namespace ProgramSetup
         /// </summary>
         public bool fullscreen;
         /// <summary>
-        /// The game's volume state.
+        /// The game's music volume state.
         /// </summary>
         public float musicVolume;
-
+        /// <summary>
+        /// The game's audio effects volume state.
+        /// </summary>
         public float audioEffectsVolume;
         /// <summary>
         /// The width of the screen.
@@ -89,7 +91,7 @@ namespace ProgramSetup
         }
 
         /// <summary>
-        ///     Saves all the <see cref="OptionsManager" /> fields into the <c>options.json</c> file.
+        /// Saves all the <see cref="OptionsManager" /> fields into the <c>options.json</c> file.
         /// </summary>
         public void SaveData()
         {

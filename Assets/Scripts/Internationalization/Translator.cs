@@ -4,6 +4,9 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using UnityEngine;
 
+/// <summary>
+/// A namespace for classes that implement Sokoban's internationalization system.
+/// </summary>
 namespace Internationalization
 {
     /// <summary>
@@ -22,7 +25,7 @@ namespace Internationalization
         /// <summary>
         /// Contains a list of paths to all the <c>json</c> files storing language data in the <c>lang</c> folder.
         /// </summary>
-        private static readonly List<string> LanguageFileList = new List<string>();
+        private static readonly List<string> languageFileList = new List<string>();
         /// <summary>
         /// Contains the name of the currently selected language.
         /// </summary>
@@ -32,14 +35,14 @@ namespace Internationalization
         /// </summary>
         private static JObject langFile;
         /// <summary>
-        /// The index of the currently selected language in the <see cref="LanguageNameList"/> and <see cref="LanguageFileList"/>
+        /// The index of the currently selected language in the <see cref="LanguageNameList"/> and <see cref="languageFileList"/>
         /// </summary>
         public static int selectedLanguageIndex;
         #endregion
 
         #region Methods
         /// <summary>
-        /// Loads all valid language files from the <c>lang</c> folder and puts their names in <see cref="LanguageNameList"/> and their paths in <see cref="LanguageFileList"/>. 
+        /// Loads all valid language files from the <c>lang</c> folder and puts their names in <see cref="LanguageNameList"/> and their paths in <see cref="languageFileList"/>. 
         /// </summary>
         public static void SetupLanguageList() {
             string[] files;
@@ -69,7 +72,7 @@ namespace Internationalization
                 //If the parsedFile contains the language.name key, its name is added to languageNameList and its path is added to languageFileList
                 if (parsedFile["language.name"] != null) {
                     LanguageNameList.Add(parsedFile["language.name"].ToString());
-                    LanguageFileList.Add(file); 
+                    languageFileList.Add(file); 
                 }
             }
         }
@@ -77,13 +80,13 @@ namespace Internationalization
         /// <summary>
         /// Changes the language that <see cref="Translator.GetTranslation(string)"/> returns translations in.
         /// </summary>
-        /// <param name="languageIndex">The index of the language in <see cref="LanguageNameList"/> and <see cref="LanguageFileList"/>.</param>
+        /// <param name="languageIndex">The index of the language in <see cref="LanguageNameList"/> and <see cref="languageFileList"/>.</param>
         public static void SetLanguage(int languageIndex) {
             selectedLanguageIndex = languageIndex;
             selectedLanguage = LanguageNameList[languageIndex];
 		
             //langFile is set to the parsed value of the file which path is stored in languageFileList[languageIndex]
-            var fileValue = File.ReadAllText(LanguageFileList[languageIndex]);
+            var fileValue = File.ReadAllText(languageFileList[languageIndex]);
             langFile = JObject.Parse(fileValue);
         }
 	

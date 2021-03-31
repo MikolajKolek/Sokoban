@@ -3,6 +3,9 @@ using TMPro;
 using UnityEngine;
 
 namespace Internationalization {
+    /// <summary>
+    /// Translates all the <see cref="TMP_Text"/> objects on <c>GameScene2</c>.
+    /// </summary>
     public class GameScene2Translator : MonoBehaviour {
         [SerializeField] private TMP_Text exitGameButtonText;
         [SerializeField] private TMP_Text restartButtonText;
@@ -44,11 +47,17 @@ namespace Internationalization {
         [SerializeField] private TMP_Text leaderboardExitButtonText;
         [SerializeField] private TMP_Text leaderboardSeeScoresButtonText;
         [SerializeField] private TMP_Text individualScoresBackButtonText;
-
+        
+        /// <summary>
+        /// Calls <see cref="UpdateTranslations"/>.
+        /// </summary>
         public void Start() {
             UpdateTranslations();
         }
 
+        /// <summary>
+        /// Updates the text of all <see cref="TMP_Text"/> object to their translations from the <see cref="Translator"/>.
+        /// </summary>
         [SuppressMessage("ReSharper", "StringLiteralTypo")]
         private void UpdateTranslations() {
             exitGameButtonText.text = Translator.GetTranslation("gamescene.game.exit.button");

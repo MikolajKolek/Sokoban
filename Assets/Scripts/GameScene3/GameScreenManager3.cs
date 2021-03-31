@@ -5,6 +5,9 @@ using TMPro;
 using UnityEngine;
 
 namespace GameScene3 {
+	/// <summary>
+	/// Manages everything that happens in the game on stage 3.
+	/// </summary>
     public class GameScreenManager3 : GameScreenManager {
         [SerializeField] private GameObject levelEditingScreen;
         [SerializeField] private TMP_Text savedText;
@@ -16,11 +19,17 @@ namespace GameScene3 {
 
         private bool inEditMode;
 
+        /// <summary>
+        /// Enters the gameScene into edit mode, which disables saving and makes it so quitting or finishing the level will put the user back onto <see cref="levelEditingScreen"/>.
+        /// </summary>
         public void EnterEditMode() {
             inEditMode = true;
             saveGameButton.gameObject.SetActive(false);
         }
         
+        /// <summary>
+        /// Overrides the FinishLevelEvent to makes sure that in edit mode it puts the user back onto <see cref="levelEditingScreen"/>.
+        /// </summary>
         protected override void FinishLevelEvent() {
             if (inEditMode) {
                 ((TilemapGameAdapter3) gameTilemapAdapter).EnterGameMode();
@@ -34,6 +43,9 @@ namespace GameScene3 {
                 base.FinishLevelEvent();
         }
 
+        /// <summary>
+        /// Overrides LeaveGame to makes sure that in edit mode it puts the user back onto <see cref="levelEditingScreen"/>.
+        /// </summary>
         public override void LeaveGame(bool playButtonClick) {
             StopAllCoroutines();
             savedText.alpha = 0f;
@@ -55,6 +67,10 @@ namespace GameScene3 {
                 base.LeaveGame(playButtonClick);
         }
         
+        /// <summary>
+        /// It shows the text "Saved" on the screen and then smoothly fades it over the course of a second.
+        /// </summary>
+        /// <returns></returns>
         private IEnumerator ShowSavedText() {
             savedText.alpha = 1f;
 
@@ -63,7 +79,10 @@ namespace GameScene3 {
                 yield return null;
             }
         }
-        
+
+        /// <summary>
+        /// If the <see cref="saveNameField"/> isn't empty and doesn't contain the name of a save state that already exists, it calls gameTilemapAdapter.SaveGameData to save the game data in the <see cref="SaveDataRegistry"/>
+        /// </summary>
         public void SaveGameData() {
             if (saveNameField.text == "") {
                 noSaveNameWarningText.gameObject.SetActive(true);
@@ -85,6 +104,9 @@ namespace GameScene3 {
             }
         }
 
+        /// <summary>
+        /// Shows the save creation subscreen.
+        /// </summary>
         public void ShowSaveCreationSubscreen() {
             ((TilemapGameAdapter3) gameTilemapAdapter).SwitchTimerState(false);
             gameActive = false;
@@ -96,6 +118,9 @@ namespace GameScene3 {
             saveCreationSubscreen.SetActive(true);
         }
 
+        /// <summary>
+        /// Backs away from the save creation subscreen into the gameScreen.
+        /// </summary>
         public void SaveCreationSubscreenBack() {
             ((TilemapGameAdapter3) gameTilemapAdapter).SwitchTimerState(true);
             gameActive = true;
@@ -103,7 +128,11 @@ namespace GameScene3 {
             AudioManager.Instance.PlayAudioEffect(AudioManager.AudioEffectClip.ButtonClicked);
             saveCreationSubscreen.SetActive(false);
         }
-        
+
+        /// <summary>
+        /// Calls gameTilemapAdapter.LoadSaveData to load the save data stored at the given ID
+        /// </summary>
+        /// <param name="saveDataRegistryID">The ID in the <see cref="SaveDataRegistry"/> of the save state that you want to load.</param>
         public void LoadSaveData(int saveDataRegistryID) {
             Start();
             screenHeight = Screen.height;

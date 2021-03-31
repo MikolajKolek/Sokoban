@@ -5,6 +5,9 @@ using GameScene2;
 using UnityEngine;
 
 namespace GameScene3 {
+	/// <summary>
+	/// Stores all the data required to restore a savestate in stage 3.
+	/// </summary>
     [Serializable]
     public class SaveData2 : IComparable {
         #region Data
@@ -38,10 +41,17 @@ namespace GameScene3 {
             this.timeDelta = timeDelta;
         }
 
+        /// <summary>
+        /// A comparator operator used for sorting. It sorts the profiles from the first time created to the last time created.
+        /// </summary>
+        /// <param name="compareSaveData">Another save data that this save data is being compared to.</param>
         public int CompareTo(object compareSaveData) {
             return timeCreated.CompareTo(((SaveData2) compareSaveData).timeCreated);
         }
 
+        /// <summary>
+        /// A struct that stores data about the level that the player was playing in case it gets deleted or moved in the <see cref="LevelRegistry2"/>
+        /// </summary>
         [Serializable]
         public struct SavableLevel {
             public int boxCount;

@@ -3,10 +3,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace MainScene {
+	/// <summary>
+	/// Adds functionality to the stage selection screen.
+	/// </summary>
 	public class StageSelectionScreen : MonoBehaviour {
-		#region Variables
-		#endregion
-	
 		#region Methods
 		/// <summary>
 		/// Loads the <c>Game</c> scene for the first stage.

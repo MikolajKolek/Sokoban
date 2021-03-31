@@ -4,12 +4,21 @@ using System.IO;
 using UnityEngine;
 
 namespace GameScene1 {
+    /// <summary>
+    /// The <see cref="LevelRegistry"/> is used to store and manage all levels in stage 1 and stage 2.
+    /// </summary>
     public static class LevelRegistry {
         #region Variables
+        /// <summary>
+        /// A <see cref="List{T}"/> storing <see cref="Level"/> objects representing all loaded levels.
+        /// </summary>
         private static readonly List<Level> Registry = new List<Level>();
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Initializes the <see cref="Registry"/> by loading all levels from the <c>\levels\</c> folder into it and sorting them by their ID.
+        /// </summary>
         public static void InitializeLevelList() {
             var files = Directory.GetFiles("levels", "*.txt");
 
@@ -90,14 +99,27 @@ namespace GameScene1 {
             Registry.Sort();
         }
 
+        /// <summary>
+        /// Returns the <see cref="Level"/> with the passed registryID.
+        /// </summary>
+        /// <param name="levelRegistryId">The index in the <see cref="Registry"/> of the <see cref="Level"/> you want to get.</param>
+        /// <returns>The <see cref="Level"/> at <see cref="levelRegistryId"/> in <see cref="Registry"/></returns>
         public static Level GetLevel(int levelRegistryId) {
             return Registry[levelRegistryId];
         }
 
+        /// <summary>
+        /// Returns the count of loaded levels in the <see cref="Registry"/>.
+        /// </summary>
         public static int GetLevelCount() {
             return Registry.Count;
         }
 
+        /// <summary>
+        /// Processes the passed line by removing everything in it before the first colon and also removing all the spaces. It is used while loading levels to remove the parts of the level format that make it human readable.
+        /// </summary>
+        /// <param name="line">The line that you want to process.</param>
+        /// <returns>The processed line</returns>
         private static string ProcessLine(string line) {
             var colonFound = false; 
             

@@ -3,6 +3,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+/// <summary>
+/// A namespace for any classes that add or interact with UI elements
+/// </summary>
 namespace UI {
     /// <summary>
     /// This class inherits from <see cref="Toggle"/> and adds the ability to navigate around a <see cref="RectTransform"/> with a <see cref="ScrollRect"/> containing many <see cref="Toggle"/> elements using arrow keys.
@@ -12,7 +15,7 @@ namespace UI {
         [SerializeField] public RectTransform levelSelectionContentRect;
 
         /// <summary>
-        /// Called when the <see cref="ToggleSelectable"/> is selected with arrow keys. Sets the toggle to on and calls <see cref="ScrollToToggle"/>.
+        /// Called when the <see cref="ToggleSelectable"/> is selected with arrow keys. Turns the toggle on and scrolls to the toggle using <see cref="ScrollToToggle"/>.
         /// </summary>
         public override void OnSelect(BaseEventData eventData)
         {

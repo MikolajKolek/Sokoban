@@ -3,10 +3,18 @@ using GameScene1;
 using ProgramSetup;
 
 namespace GameScene2 {
+    /// <summary>
+    /// Acts as an adapter between the <see cref="Tilemap"/> and <see cref="Grid"/> and the game. It has the ability to load and properly scale levels, move the player, restart the game and call delegates when certain events happen.
+    /// Functionality to calculate the score and save and load save states has been added over <see cref="TilemapGameAdapter"/>.
+    /// </summary>
     public class TilemapGameAdapter2 : TilemapGameAdapter {
         public double newLevelScore;
         public bool isHighScore;
         
+        /// <summary>
+        /// Overrides the <see cref="TilemapGameAdapter"/>'s LevelFinished event to calculate the score and check if it's a high score and put that information into <see cref="newLevelScore"/> and <see cref="isHighScore"/> fields
+        /// If it is a high score, it also saves it to the selected profile.
+        /// </summary>
         protected override void LevelFinished() {
             isHighScore = false;
             
@@ -33,6 +41,9 @@ namespace GameScene2 {
             base.LevelFinished();
         }
         
+        /// <summary>
+        /// Saves the current game's state to the selected profile so it can be restored later.
+        /// </summary>
         public void SaveGameData() {
             var serializedTilemap = new TilemapSerializable(boxOnBoxArea, boxArea, player, playerOnBoxArea, floor, wall, box, empty);
             serializedTilemap.SerializeTilemap(tilemap, currentLevel.levelHeight, currentLevel.levelWidth);
@@ -44,6 +55,9 @@ namespace GameScene2 {
             ProfileManager.SaveSelectedProfile();
         }
         
+        /// <summary>
+        /// Loads the game's data from the currently selected profile.
+        /// </summary>
         public void LoadSaveData() {
             var saveData = ProfileManager.selectedProfile.savedGame;
             

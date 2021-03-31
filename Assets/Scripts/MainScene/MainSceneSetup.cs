@@ -4,31 +4,34 @@ using ProgramSetup;
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// A namespace for classes used in the main scene
+/// </summary>
 namespace MainScene
 {
     /// <summary>
-    ///     Takes care of setting up the <c>MainScene</c>, loading options and languages.
+    /// Takes care of setting up the <c>MainScene</c> and loading options.
     /// </summary>
     public class MainSceneSetup : MonoBehaviour
     {
         #region Variables
         /// <summary>
-        ///     The <see cref="TMP_Dropdown"/> in the options menu that's used to select languages
+        /// The <c>mainScreen</c> <see cref="GameObject"/>
         /// </summary>
-        [SerializeField] private TMP_Dropdown languageDropdown;
-        [SerializeField] private GameObject mainMenu;
-        [SerializeField] private GameObject optionsMenu;
-        [SerializeField] private GameObject infoMenu;
-        [SerializeField] private GameObject stageSelectionMenu;
+        [SerializeField] private GameObject mainScreen;
+        [SerializeField] private GameObject optionsMenuScreen;
+        [SerializeField] private GameObject infoScreen;
+        [SerializeField] private GameObject stageSelectionScreen;
+        /// <summary>
+        /// The main scene's translator object
+        /// </summary>
         [SerializeField] private MainSceneTranslator mainSceneTranslator;
-        
         #endregion
 
         #region Methods
-
         /// <summary>
-        ///     Start is called before the first frame update.
-        ///     <para>It loads options from the options file, and also sets up languages as well as the language dropdown</para>
+        /// Start is called before the first frame update.
+        /// <para>It loads options from the options file, and sets up the language dropdown</para>
         /// </summary>
         private void Start()
         {
@@ -38,56 +41,30 @@ namespace MainScene
             AudioManager.Instance.SetAudioEffectsVolume(optionsSaveObject.audioEffectsVolume);
             AudioManager.Instance.PlayMusic(AudioManager.MusicClip.MenuMusic);
 
-            if (Translator.LanguageNameList.Count > 0)
-            {
-                languageDropdown.ClearOptions();
-                languageDropdown.AddOptions(Translator.LanguageNameList);
-                languageDropdown.value = Translator.selectedLanguageIndex;
-                languageDropdown.RefreshShownValue();
-            }
-            else
-            {
-                languageDropdown.ClearOptions();
-                languageDropdown.AddOptions(new List<string> {"Missing lang files"});
-                languageDropdown.value = 0;
-                languageDropdown.RefreshShownValue();
-
-                return;
-            }
-
             mainSceneTranslator.UpdateTranslations();
         }
 
+        /// <summary>
+        /// Detects presses of the <c>Escape</c> key and quits out of the currently open screen.
+        /// </summary>
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                if (optionsMenu.activeSelf)
-                    optionsMenu.SetActive(false);
-                if (infoMenu.activeSelf)
-                    infoMenu.SetActive(false);
-                if (stageSelectionMenu.activeSelf)
-                    stageSelectionMenu.SetActive(false);
+                if (optionsMenuScreen.activeSelf)
+                    optionsMenuScreen.SetActive(false);
+                if (infoScreen.activeSelf)
+                    infoScreen.SetActive(false);
+                if (stageSelectionScreen.activeSelf)
+                    stageSelectionScreen.SetActive(false);
 
-                mainMenu.SetActive(true);
+                mainScreen.SetActive(true);
             }
         }
 
-        public void SetLanguage(int languageIndex)
-        {
-            if (Translator.selectedLanguage != Translator.LanguageNameList[languageIndex])
-            {
-                Translator.SetLanguage(languageIndex);
-                mainSceneTranslator.UpdateTranslations();
-
-                var languageSaveObject = new OptionsManager
-                {
-                    language = Translator.LanguageNameList[languageIndex]
-                };
-                languageSaveObject.SaveData();
-            }
-        }
-
+        /// <summary>
+        /// Plays the <see cref="AudioManager.AudioEffectClip.ButtonClicked"/> sound effect
+        /// </summary>
         public void PlayButtonClick() {
             AudioManager.Instance.PlayAudioEffect(AudioManager.AudioEffectClip.ButtonClicked);
         }

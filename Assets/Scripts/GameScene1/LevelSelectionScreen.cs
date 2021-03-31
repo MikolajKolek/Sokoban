@@ -12,8 +12,14 @@ using Button = UnityEngine.UI.Button;
 using Image = UnityEngine.UI.Image;
 using Toggle = UnityEngine.UI.Toggle;
 
+/// <summary>
+/// A namespace for any classes used on the first game scene.
+/// </summary>
 namespace GameScene1
 {
+    /// <summary>
+    /// Manages everything that happens on the level selection screen in stage 1.
+    /// </summary>
     public class LevelSelectionScreen : MonoBehaviour {
         [SerializeField] private TMP_Text exampleLevelToggle;
         [SerializeField] private Image easyItemContent;
@@ -25,8 +31,20 @@ namespace GameScene1
         [SerializeField] private GameObject gameScreen;
         [SerializeField] private GameScreenManager gameScreenManager;
         
+        /// <summary>
+        /// A list of <see cref="TMP_Text"/> elements which are parents of <see cref="UI.ToggleSelectable"/> elements. This list contains the Toggles
+        /// that correspond to easy levels in the <see cref="LevelRegistry"/>.
+        /// </summary>
         public List<TMP_Text> easyButtonList;
+        /// <summary>
+        /// A list of <see cref="TMP_Text"/> elements which are parents of <see cref="UI.ToggleSelectable"/> elements. This list contains the Toggles
+        /// that correspond to medium levels in the <see cref="LevelRegistry"/>.
+        /// </summary>
         public List<TMP_Text> mediumButtonList;
+        /// <summary>
+        /// A list of <see cref="TMP_Text"/> elements which are parents of <see cref="UI.ToggleSelectable"/> elements. This list contains the Toggles
+        /// that correspond to hard levels in the <see cref="LevelRegistry"/>.
+        /// </summary>
         public List<TMP_Text> hardButtonList;
         private bool levelSelected;
         private int screenHeight;
@@ -40,11 +58,16 @@ namespace GameScene1
         [SerializeField] private TMP_Text playButtonText;
         private Level levelPreview;
 	
+        /// <summary>
+        /// Start is executed when the <see cref="LevelSelectionScreen"/> is first loaded. It creates a clone of <see cref="UI.ToggleSelectable"/> for each level that is
+        /// loaded in <see cref="LevelRegistry"/> and puts it under the correct difficulty category on the screen. 
+        /// </summary>
         public void Start() {
             for(var i = 0; i < LevelRegistry.GetLevelCount(); i++) {
                 var loadedLevel = LevelRegistry.GetLevel(i);
                 var button = Instantiate(exampleLevelToggle);
                 button.text = Translator.GetTranslation("gamescene.levelselection.level.text") + " " +  loadedLevel.levelName;
+                //The name is set to the level's id in the LevelRegistry, this way later on we can identify which Level this Toggle is associated with.
                 button.name = i.ToString();
 
                 switch (loadedLevel.difficultyLevel)
@@ -75,6 +98,10 @@ namespace GameScene1
             levelSelected = false;
         }
 
+        /// <summary>
+        /// Update is called every frame. It calls WindowScaleUpdate on <see cref="previewTilemapAdapter"/> if the proportions of the screen change
+        /// so the preview tilemap always fits perfectly on the screen. It also exits to <c>MainScene</c> if the Escape key is pressed.
+        /// </summary>
         public void Update() {
             if (levelSelectionScreen.activeSelf) {
                 if (levelSelected && (Screen.height != screenHeight || Screen.width != screenWidth)) {
@@ -90,12 +117,19 @@ namespace GameScene1
             }
         }
 
+        /// <summary>
+        /// Exit switches the scene to <c>MainScene</c> and plays the button clicked audio effect.
+        /// </summary>
         public void Exit() {
             AudioManager.Instance.PlayAudioEffect(AudioManager.AudioEffectClip.ButtonClicked);
             
             SceneManager.LoadScene("MainScene");
         }
 
+        /// <summary>
+        /// ToggleValueChanged is called every time a toggle's value is changed. It shows the level corresponding to the pressed toggle on the <see cref="levelPreview"/>.
+        /// It also allows the playButton to be pressed if it wasn't before because a level wasn't selected.
+        /// </summary>
         public void ToggleValueChanged() {
             if(group.AnyTogglesOn()) {
                 if(playButton.interactable == false) {
@@ -150,6 +184,11 @@ namespace GameScene1
             }
         }
 
+        /// <summary>
+        /// This coroutine cycles through <see cref="easyButtonList"/>, <see cref="mediumButtonList"/> or <see cref="hardButtonList"/> and displays all the
+        /// easy, medium or hard levels in order on the <see cref="levelPreview"/>.
+        /// </summary>
+        /// <param name="buttonList"><see cref="easyButtonList"/>, <see cref="mediumButtonList"/> or <see cref="hardButtonList"/></param>
         private IEnumerator CycleLevels(IReadOnlyList<TMP_Text> buttonList) {
             var selectedIndex = 0;
             var time = 0f;
@@ -173,7 +212,10 @@ namespace GameScene1
                 yield return null;
             }
         }
-
+        
+        /// <summary>
+        /// Called when the play button is pressed. It starts playing the level associated to the currently selected toggle.
+        /// </summary>
         public void StartGame() {
             AudioManager.Instance.PlayAudioEffect(AudioManager.AudioEffectClip.ButtonClicked);
             int levelID;

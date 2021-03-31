@@ -5,6 +5,9 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 namespace GameScene2 {
+    /// <summary>
+    /// A way to serialize Unity's <see cref="Tilemap"/> element using <see cref="JsonUtility"/>.toJson().
+    /// </summary>
     [Serializable]
     public class TilemapSerializable {
         private TileBase boxOnBoxArea;
@@ -21,6 +24,9 @@ namespace GameScene2 {
         public int tilemapHeight;
         public int tilemapWidth;
         
+        /// <summary>
+        /// Initializes the tilemap deserialization by giving the <see cref="TilemapSerializable"/> all the <see cref="TileBase"/>s required.
+        /// </summary>
         public void InitializeTilemapDeserialization(TileBase boxOnBoxAreaTile, TileBase boxAreaTile, TileBase playerTile, TileBase playerOnBoxAreaTile, TileBase floorTile, TileBase wallTile, TileBase boxTile, TileBase emptyTile) {
             boxOnBoxArea = boxOnBoxAreaTile;
             boxArea = boxAreaTile;
@@ -43,6 +49,12 @@ namespace GameScene2 {
             this.empty = empty;
         }
 
+        /// <summary>
+        /// Serializes the given tilemap into itself.
+        /// </summary>
+        /// <param name="serializedTilemap">The tilemap that you want to serialize.</param>
+        /// <param name="height">The tilemap's height.</param>
+        /// <param name="width">The tilemap's width.</param>
         public void SerializeTilemap(Tilemap serializedTilemap, int height, int width) {
             tilemapHeight = height;
             tilemapWidth = width;
@@ -86,6 +98,11 @@ namespace GameScene2 {
             }
         }
 
+        /// <summary>
+        /// Deserializes the <see cref="TilemapSerializable"/> into a <see cref="Tilemap"/> object.
+        /// </summary>
+        /// <param name="baseTilemap">The tilemap you want to put the deserialized tilemap into.</param>
+        /// <returns>The deserialized tilemap</returns>
         public Tilemap DeserializeTilemap(Tilemap baseTilemap) {
             baseTilemap.tileAnchor = tileAnchor;
             

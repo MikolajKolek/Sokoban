@@ -8,6 +8,9 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 
 namespace GameScene3 {
+    /// <summary>
+    /// Is used to store and manage all the levels on gameScreen3.
+    /// </summary>
     public static class LevelRegistry2 {
         #region Variables
         private static TileBase boxOnBoxArea;
@@ -19,10 +22,16 @@ namespace GameScene3 {
         private static TileBase empty;
 
         private static bool registryInitialized;
+        /// <summary>
+        /// Stores all player made levels.
+        /// </summary>
         private static readonly List<Level> Registry = new List<Level>();
         #endregion
         
         #region Methods
+        /// <summary>
+        /// Initializes the <see cref="Registry"/> by loading the list of levels from %AppData%\levels\ into it and sorts them by ID.
+        /// </summary>
         [SuppressMessage("ReSharper", "ParameterHidesMember")]
         public static void InitializeLevelList(TileBase boxOnBoxArea, TileBase boxArea, TileBase player, TileBase floor, TileBase wall, TileBase box, TileBase empty) {
             if (!registryInitialized) {
@@ -101,6 +110,10 @@ namespace GameScene3 {
             }
         }
 
+        /// <summary>
+        /// Deletes a level at the given ID.
+        /// </summary>
+        /// <param name="levelID">The ID in the <see cref="Registry"/> of the level that will be deleted.</param>
         public static void DeleteLevel(int levelID) {
             var directory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Sokoban\levels\";
             
@@ -119,6 +132,10 @@ namespace GameScene3 {
             }
         }
 
+        /// <summary>
+        /// Saves the level at the given ID to %AppData%\levels\
+        /// </summary>
+        /// <param name="levelID">The ID in the <see cref="Registry"/>of the level that will be deleted.</param>
         private static void SaveLevel(int levelID) {
             var level = GetLevel(levelID);
             
@@ -154,14 +171,27 @@ namespace GameScene3 {
             fs.Close();
         }
 
+        /// <summary>
+        /// Returns the level at the given ID.
+        /// </summary>
+        /// <param name="levelRegistryId">The ID in the <see cref="Registry"/>of the level that will be returned.</param>
+        /// <returns>The requested <see cref="Level"/>.</returns>
         public static Level GetLevel(int levelRegistryId) {
             return Registry[levelRegistryId];
         }
 
+        /// <summary>
+        /// Gets the count of all levels in the <see cref="Registry"/>
+        /// </summary>
+        /// <returns>The cound of levels in the registry</returns>
         public static int GetLevelCount() {
             return Registry.Count;
         }
 
+        /// <summary>
+        /// Saves the given Level to %AppData%\levels\ and the <see cref="Registry"/>
+        /// </summary>
+        /// <param name="level">The <see cref="Level"/> that will be saved.</param>
         public static void SaveLevel(Level level) {
             Registry.Add(level);
             
@@ -197,6 +227,14 @@ namespace GameScene3 {
             fs.Close();
         }
         
+        /// <summary>
+        /// Serializes a given <see cref="Tilemap"/> to a <see cref="Level"/>
+        /// </summary>
+        /// <param name="tilemap">The <see cref="Tilemap"/> that will be serialized.</param>
+        /// <param name="levelName">The level's name.</param>
+        /// <param name="levelHeight">The level's height.</param>
+        /// <param name="levelWidth">The level's width.</param>
+        /// <returns>The serialized level.</returns>
         public static Level SerializeTilemapToLevel(Tilemap tilemap, string levelName, int levelHeight, int levelWidth) {
             var boxCount = 0;
             var levelLayout = new List<List<Level.Tile>>();
@@ -235,6 +273,11 @@ namespace GameScene3 {
             return outputLevel;
         }
 
+        /// <summary>
+        /// Checks if a level exists with the given level name.
+        /// </summary>
+        /// <param name="profileName">The level name that is checked</param>
+        /// <returns>True if a level with the given name exists, false if it doesn't.</returns>
         public static bool LevelExists(string profileName) {
             foreach(var element in Registry)
                 if (element.levelName == profileName)
@@ -242,7 +285,12 @@ namespace GameScene3 {
 
             return false;
         }
-        
+
+        /// <summary>
+        /// Processes the passed line by removing everything in it before the first colon and also removing all the spaces. It is used while loading levels to remove the parts of the level format that make it human readable.
+        /// </summary>
+        /// <param name="line">The line that you want to process.</param>
+        /// <returns>The processed line</returns>
         private static string ProcessLine(string line) {
             var colonFound = false; 
             
@@ -260,6 +308,11 @@ namespace GameScene3 {
             return line;
         }
 
+        /// <summary>
+        /// Renames the level at the givenID and saves it.
+        /// </summary>
+        /// <param name="levelID">The ID of the level that will be renamed in the <see cref="Registry"/></param>
+        /// <param name="newName">The level's new name</param>
         public static void RenameLevel(int levelID, string newName) {
             Registry[levelID] = Registry[levelID].ChangeName(newName);
             SaveLevel(levelID);

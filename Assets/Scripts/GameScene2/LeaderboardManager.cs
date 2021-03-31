@@ -9,6 +9,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace GameScene2 {
+    /// <summary>
+    /// The leaderboardManager manages everything going on in the leaderboard screen.
+    /// </summary>
     public class LeaderboardManager : MonoBehaviour {
         [SerializeField] private TMP_Text exampleLeaderboardEntry;
         [SerializeField] private GameObject leaderboardScrollViewContent;
@@ -24,6 +27,9 @@ namespace GameScene2 {
         public List<TMP_Text> leaderboardEntryList;
         private bool leaderboardInitialized;
         
+        /// <summary>
+        /// InitializeLeaderboard is called whenever the leaderboard screen is entered. It puts all the profiles from <see cref="ProfileManager"/> into the leaderboard and destroys any leaderboard entries that were left over from the previous time the leaderboard was shown.
+        /// </summary>
         public void InitializeLeaderboard() {
             foreach(var entry in leaderboardEntryList)
                 Destroy(entry.gameObject);
@@ -49,6 +55,9 @@ namespace GameScene2 {
             exampleLeaderboardEntry.gameObject.SetActive(false);
         }
 
+        /// <summary>
+        /// Called whenever a toggle on the leaderboard is pressed. It allows the <see cref="seeIndividualScoresButton"/> to be pressed.
+        /// </summary>
         public void ToggleValueChanged() {
             if (leaderboardInitialized) {
                 group.allowSwitchOff = false;
@@ -57,6 +66,9 @@ namespace GameScene2 {
             }
         }
         
+        /// <summary>
+        /// Exit is called whenever the exit button is pressed. It leaves the leaderboard screen and goes back to the level selection screen.
+        /// </summary>
         public void Exit() {
             leaderboardInitialized = false;
             AudioManager.Instance.PlayAudioEffect(AudioManager.AudioEffectClip.ButtonClicked);
@@ -64,6 +76,10 @@ namespace GameScene2 {
             gameObject.SetActive(false);
         }
 
+        /// <summary>
+        /// SeeIndividualScores is called whenever the <see cref="seeIndividualScoresButton"/> is pressed. It shows the <see cref="individualScoresList"/> and initializes it with
+        /// the scores from all levels in the game.
+        /// </summary>
         public void SeeIndividualScores() {
             AudioManager.Instance.PlayAudioEffect(AudioManager.AudioEffectClip.ButtonClicked);
             

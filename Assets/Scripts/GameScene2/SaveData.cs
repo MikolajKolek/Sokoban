@@ -2,10 +2,15 @@
 using UnityEngine;
 
 namespace GameScene2 {
-    //TODO: If possible, revert back to struct, it was changed to a class to make it nullable
+    /// <summary>
+    /// Stores all the data required to restore a savestate in stage 2.
+    /// </summary>
     [Serializable]
     public class SaveData {
         #region Data
+        /// <summary>
+        /// The serialized tilemap.
+        /// </summary>
         public TilemapSerializable mapState;
         public Vector3Int currentPlayerLocation;
         public float horizontalMultiplier;
@@ -16,9 +21,15 @@ namespace GameScene2 {
         public int currentTime;
         public double timeDelta;
         
+        /// <summary>
+        /// Stores information on weather the <see cref="SaveData"/> is empty or not.
+        /// </summary>
         public bool isEmpty;
         #endregion
 
+        /// <summary>
+        /// Initializes the <see cref="SaveData"/> object with all it's fields.
+        /// </summary>
         public SaveData(TilemapSerializable mapState, Vector3Int currentPlayerLocation, float horizontalMultiplier, int boxInPlaceCount,
             int currentLevelID, int boxMoveCount, int playerMoveCount, int currentTime, double timeDelta) {
             this.mapState = mapState;
@@ -33,6 +44,9 @@ namespace GameScene2 {
             isEmpty = false;
         }
 
+        /// <summary>
+        /// Sets the <see cref="SaveData"/> object to empty.
+        /// </summary>
         public SaveData() {
             isEmpty = true;
         }

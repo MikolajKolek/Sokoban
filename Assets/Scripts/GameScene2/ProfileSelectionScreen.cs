@@ -4,11 +4,15 @@ using System.Linq;
 using GameScene1;
 using ProgramSetup;
 using TMPro;
+using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace GameScene2 {
+    /// <summary>
+    /// Manages everything in the profileSelectionScreen
+    /// </summary>
     public class ProfileSelectionScreen : MonoBehaviour {
         #region Serialized variables
         [SerializeField] private TMP_Text exampleProfileToggle;
@@ -37,6 +41,9 @@ namespace GameScene2 {
 
         public List<TMP_Text> profileButtonList;
 
+        /// <summary>
+        /// The start function initializes the profileSelectionScreen and creates <see cref="UI.ToggleSelectable"/> elements for all the profiles in <see cref="ProfileManager"/>
+        /// </summary>
         public void Start() {
             for (var i = 0; i < ProfileManager.GetProfileCount(); i++) {
                 var currentProfile = ProfileManager.GetProfile(i);
@@ -57,12 +64,15 @@ namespace GameScene2 {
             setupFinished = true;
         }
 
+        /// <summary>
+        /// If the escape key is pressed it quits to the main scene.
+        /// If no toggles are selected it prevents the player from pressing the select and edit buttons, and if they are it allows the player to do it.
+        /// </summary>
         public void Update() {
             if (Input.GetKeyDown(KeyCode.Escape) && gameObject.activeSelf) {
                 SceneManager.LoadScene("MainScene");
             }
 
-            //TODO: This isn't a fast way to do this, but it works. If you have the time, please fix
             if (profileToggleGroup.ActiveToggles().SingleOrDefault() == null) {
                 selectButton.interactable = false;
                 selectButtonText.alpha = 0.5f;
@@ -77,12 +87,18 @@ namespace GameScene2 {
             }
         }
 
+        /// <summary>
+        /// Called when any toggle's value changes, it disables the ability to unselect a profile.
+        /// </summary>
         public void ToggleValueChanged() {
             if (profileToggleGroup.AnyTogglesOn() && setupFinished) {
                 profileToggleGroup.allowSwitchOff = false;
             }
         }
 
+        /// <summary>
+        /// Deletes the profile that is currently selected.
+        /// </summary>
         public void DeleteSelectedProfile() {
             var selectedProfileID = Convert.ToInt32(profileToggleGroup.ActiveToggles().First().transform.parent.name);
             ProfileManager.DeleteProfile(selectedProfileID);
@@ -99,6 +115,9 @@ namespace GameScene2 {
             AudioManager.Instance.PlayAudioEffect(AudioManager.AudioEffectClip.ButtonClicked);
         }
 
+        /// <summary>
+        /// If <see cref="profileRenameField"/> isn't empty and doesn't contain a name of a profile that already exists, it changes the name of the currently selected profile.
+        /// </summary>
         public void ChangeName() {
             if (profileRenameField.text == "") {
                 noProfileNameWarningEditing.gameObject.SetActive(true);
@@ -124,6 +143,9 @@ namespace GameScene2 {
             }
         }
 
+        /// <summary>
+        /// Called by the back button in the editing subscreen. Goes back to the profileSelectionScreen.
+        /// </summary>
         public void BackFromEditing() {
             noProfileNameWarningEditing.gameObject.SetActive(false);
             duplicateProfileNameWarningEditing.gameObject.SetActive(false);
@@ -132,6 +154,9 @@ namespace GameScene2 {
             AudioManager.Instance.PlayAudioEffect(AudioManager.AudioEffectClip.ButtonClicked);
         }
 
+        /// <summary>
+        /// Called by the back button in the profile creation subscreen. Goes back to the profileCreationScreen.
+        /// </summary>
         public void BackFromProfileCreation() {
             noProfileNameWarningCreation.gameObject.SetActive(false);
             duplicateProfileNameWarningCreation.gameObject.SetActive(false);
@@ -140,12 +165,18 @@ namespace GameScene2 {
             AudioManager.Instance.PlayAudioEffect(AudioManager.AudioEffectClip.ButtonClicked);
         }
         
+        /// <summary>
+        /// Exits gameScene2 and goes back to the <c>MainScene</c>
+        /// </summary>
         public void Exit() {
             AudioManager.Instance.PlayAudioEffect(AudioManager.AudioEffectClip.ButtonClicked);
 
             SceneManager.LoadScene("MainScene");
         }
-
+        
+        /// <summary>
+        /// Called by the select profile button, it selects an profile and switches to the <see cref="levelSelectionScreen"/>.
+        /// </summary>
         public void SelectProfile() {
             AudioManager.Instance.PlayAudioEffect(AudioManager.AudioEffectClip.ButtonClicked);
             ProfileManager.SelectProfile(Convert.ToInt32(profileToggleGroup.ActiveToggles().First().transform.parent
@@ -155,18 +186,27 @@ namespace GameScene2 {
             gameObject.SetActive(false);
         }
 
+        /// <summary>
+        /// Opens the <see cref="profileEditingScreen"/> for the currently selected profile.
+        /// </summary>
         public void EditProfile() {
             profileRenameField.text = ProfileManager.GetProfile(Convert.ToInt32(profileToggleGroup.ActiveToggles().First().transform.parent.name)).name;
             profileEditingScreen.SetActive(true);
             AudioManager.Instance.PlayAudioEffect(AudioManager.AudioEffectClip.ButtonClicked);
         }
 
+        /// <summary>
+        /// Opens the <see cref="profileCreationScreen"/>.
+        /// </summary>
         public void CreateProfile() {
             profileNameField.text = "";
             profileCreationScreen.SetActive(true);
             AudioManager.Instance.PlayAudioEffect(AudioManager.AudioEffectClip.ButtonClicked);
         }
 
+        /// <summary>
+        /// If <see cref="profileNameField"/> isn't empty and doesn't contain a name of a profile that already exists, it creates a new profile by that name.
+        /// </summary>
         public void ConfirmProfileCreation() {
             if (profileNameField.text == "") {
                 noProfileNameWarningCreation.gameObject.SetActive(true);

@@ -3,6 +3,9 @@ using TMPro;
 using UnityEngine;
 
 namespace Internationalization {
+	/// <summary>
+	/// Translates all the <see cref="TMP_Text"/> objects on the <c>MainScene</c>.
+	/// </summary>
     public class MainSceneTranslator : MonoBehaviour {
         #region Text fields
         [SerializeField] private TMP_Text titleText;
@@ -29,7 +32,10 @@ namespace Internationalization {
         [SerializeField] private TMP_Text gameInformationText;
         [SerializeField] private TMP_Text infoBackText;
         #endregion
-        
+
+        /// <summary>
+        /// Updates the text of all <see cref="TMP_Text"/> object to their translations from the <see cref="Translator"/>.
+        /// </summary>
         [SuppressMessage("ReSharper", "StringLiteralTypo")]
         public void UpdateTranslations() {
             titleText.text = Translator.GetTranslation("mainscene.mainscreen.title.text");
